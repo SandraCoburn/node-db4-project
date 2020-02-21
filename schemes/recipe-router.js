@@ -24,7 +24,7 @@ router.get("/:id", (req, res) => {
       res.status(500).json({ error: "Server couldn't deliver" });
     });
 });
-router.get("/:id/instructions", (req, res) => {
+router.get("/:id/steps", (req, res) => {
   Recipes.getInstructions(req.params.id)
     .then(recipe => {
       res.status(200).json(recipe);

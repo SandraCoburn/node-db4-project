@@ -20,7 +20,6 @@ exports.up = function(knex) {
       tbl.increments();
       tbl.string("description", 225).notNullable();
       tbl.integer("step_no").notNullable();
-      s;
       tbl
         .integer("recipe_id")
         .unsigned()
@@ -53,8 +52,8 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfItExists("recipe_ing")
-    .dropTableIfItExists("steps")
-    .dropTableIfItExists("ingredients")
-    .dropTableIfItExists("recipes");
+    .dropTableIfExists("recipe_ing")
+    .dropTableIfExists("ingredients")
+    .dropTableIfExists("steps")
+    .dropTableIfExists("recipes");
 };
